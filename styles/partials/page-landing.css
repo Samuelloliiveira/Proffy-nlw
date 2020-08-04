@@ -79,7 +79,7 @@
     margin-left: 0.8rem;
 }
 
-@media (min-width: 699px) {
+@media (max-width: 699px) {
     :root {
         font-size: 40%; /*Modificar as medidas rem*/
     }
@@ -108,7 +108,7 @@
     }
 
     .logo-container img {
-        height: 127%;
+        height: 127px;
     }
 
     .hero-image { 
@@ -125,6 +125,6 @@
     .total-connections {
         grid-area: texting;
         justify-self: end;
-        font-size: 12px;
+        font-size: 1.2rem;
     }
 }
