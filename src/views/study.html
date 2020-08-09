@@ -64,32 +64,37 @@
         </header>
 
         <main>
+            <!--Condição em nunjuscks-->
+            {% if proffys == "" %}
+                <p class="no-results">Nenhum professor encontrado com a sua pesquisa.</p>
+            {% else %}
 
-            <!--Executando repetição nunjucks-->
-            {%for proffys in proffys %}
-                <article class="teacher-item">
-                    <header>
-                        <img src="{{proffys.avatar}}" alt="{{proffys.name}}">
-                        <div>
-                            <strong>{{proffys.name}}</strong>
-                            <span>{{proffys.subject}}</span>
-                        </div>
-                    </header>
-                
-                    <p>{{proffys.bio}}</p>
-                
-                    <footer>
-                        <p>Preço/hora<strong>R${{proffys.cost}}</strong>
-                        </p>
-                        <!--Usando API do whatsapp-->
-                        <a href="https://api.whatsapp.com/send?1=pt_BR&phone=55{{proffys.whatsapp}}&text=Tenho interesse na sua aula de {{proffys.subject}} {{proffys.name}}"
-                        class="button" target="_blank">
-                            <img src="/images/icons/whatsapp.svg" alt="Whatsapp">Entrar em contato
-                        </a>
-                    </footer>
-                </article>
-            {%endfor%}
+                <!--Executando repetição nunjucks-->
+                {%for proffys in proffys %}
+                    <article class="teacher-item">
+                        <header>
+                            <img src="{{proffys.avatar}}" alt="{{proffys.name}}">
+                            <div>
+                                <strong>{{proffys.name}}</strong>
+                                <span>{{proffys.subject}}</span>
+                            </div>
+                        </header>
+                    
+                        <p>{{proffys.bio}}</p>
+                    
+                        <footer>
+                            <p>Preço/hora<strong>R${{proffys.cost}}</strong>
+                            </p>
+                            <!--Usando API do whatsapp-->
+                            <a href="https://api.whatsapp.com/send?1=pt_BR&phone=55{{proffys.whatsapp}}&text=Tenho interesse na sua aula de {{proffys.subject}} {{proffys.name}}"
+                            class="button" target="_blank">
+                                <img src="/images/icons/whatsapp.svg" alt="Whatsapp">Entrar em contato
+                            </a>
+                        </footer>
+                    </article>
+                {% endfor %}<!--Fim da repitação nunjucks-->
 
+            {% endif %}<!--Fim da condição nunjuscks-->
         </main>
     </div>
 </body>
